@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>California Housing Prediction</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Welcome to California Housing Prediction</h1>
-    <p>Use the API to make predictions.</p>
+    <div class="container">
+        <h2 class="mt-4">California House Price Prediction</h2>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="MedInc">Median Income</label>
+                <input type="text" class="form-control" id="MedInc" name="MedInc" required>
+            </div>
+            <div class="form-group">
+                <label for="HouseAge">House Age</label>
+                <input type="text" class="form-control" id="HouseAge" name="HouseAge" required>
+            </div>
+            <div class="form-group">
+                <label for="AveRooms">Average Rooms</label>
+                <input type="text" class="form-control" id="AveRooms" name="AveRooms" required>
+            </div>
+            <div class="form-group">
+                <label for="AveBedrms">Average Bedrooms</label>
+                <input type="text" class="form-control" id="AveBedrms" name="AveBedrms" required>
+            </div>
+            <div class="form-group">
+                <label for="Population">Population</label>
+                <input type="text" class="form-control" id="Population" name="Population" required>
+            </div>
+            <div class="form-group">
+                <label for="AveOccup">Average Occupancy</label>
+                <input type="text" class="form-control" id="AveOccup" name="AveOccup" required>
+            </div>
+            <div class="form-group">
+                <label for="Latitude">Latitude</label>
+                <input type="text" class="form-control" id="Latitude" name="Latitude" required>
+            </div>
+            <div class="form-group">
+                <label for="Longitude">Longitude</label>
+                <input type="text" class="form-control" id="Longitude" name="Longitude" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+        <br>
+        {% if prediction_text %}
+        <div class="alert alert-success">
+            {{ prediction_text }}
+        </div>
+        {% endif %}
+    </div>
 </body>
 </html>
